@@ -8,3 +8,15 @@ const tilbakemelding = document.getElementById("tilbakemelding");
 console.log(knapp);
 
 oppgave.textContent = "comer - tú";
+
+var fasit = "comes";
+
+function sjekkSvar() {
+    if (tekstfelt.value === fasit) {
+    tilbakemelding.textContent = "Riktig! 🎉";
+    } else {
+    tilbakemelding.textContent = "Feil, riktig svar er " + fasit;
+    }
+}
+
+knapp.addEventListener("click", sjekkSvar);
