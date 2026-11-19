@@ -4,26 +4,36 @@ const oppgave = document.getElementById("oppgave");
 const tekstfelt = document.getElementById("svar");
 const knapp = document.getElementById("sjekk_knapp");
 const tilbakemelding = document.getElementById("tilbakemelding");
+const poengteller = document.getElementById("poengteller");
 
 console.log(knapp);
 
 let fasit = "";
+let poeng = 0;
 
 function sjekkSvar() {
   if (tekstfelt.value.trim().toLowerCase() === fasit) {
     tilbakemelding.textContent = "Riktig! 🎉";
     tekstfelt.value = "";
+    poeng++;
     nyOppgave();
+    visPoeng();
   } else {
     tilbakemelding.textContent = "Feil, riktig svar er " + fasit;
+    poeng = 0;
+    visPoeng();
   }
-};
+}
+
+function visPoeng() {
+  poengteller.textContent = poeng + " på rad";
+}
 
 knapp.addEventListener("click", sjekkSvar);
 tekstfelt.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        sjekkSvar()
-    }
+  if (event.key === "Enter") {
+    sjekkSvar();
+  }
 });
 
 const oppgaver = [
@@ -40,6 +50,6 @@ function nyOppgave() {
   const valgtOppgave = oppgaver[nr];
   oppgave.textContent = valgtOppgave.verb + " - " + valgtOppgave.person;
   fasit = valgtOppgave.svar;
-};
+}
 
-nyOppgave()
+nyOppgave();
