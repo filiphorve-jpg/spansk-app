@@ -7,16 +7,34 @@ const tilbakemelding = document.getElementById("tilbakemelding");
 
 console.log(knapp);
 
-oppgave.textContent = "comer - tú";
-
-var fasit = "comes";
+let fasit = "";
 
 function sjekkSvar() {
-    if (tekstfelt.value === fasit) {
+  if (tekstfelt.value === fasit) {
     tilbakemelding.textContent = "Riktig! 🎉";
-    } else {
+    tekstfelt.value = "";
+    nyOppgave();
+  } else {
     tilbakemelding.textContent = "Feil, riktig svar er " + fasit;
-    }
+  }
 }
 
 knapp.addEventListener("click", sjekkSvar);
+
+const oppgaver = [
+  { verb: "ver", person: "yo", svar: "veo" },
+  { verb: "vivir", person: "nosotros", svar: "vivimos" },
+  { verb: "hablar", person: "él/ella", svar: "habla" },
+  { verb: "comer", person: "ellos/ellas", svar: "comen" },
+  { verb: "poder", person: "yo", svar: "puedo" },
+  { verb: "querer", person: "tú", svar: "quieres" },
+];
+
+function nyOppgave() {
+  const nr = Math.floor(Math.random() * oppgaver.length);
+  const valgtOppgave = oppgaver[nr];
+  oppgave.textContent = valgtOppgave.verb + " - " + valgtOppgave.person;
+  fasit = valgtOppgave.svar;
+}
+
+nyOppgave()
