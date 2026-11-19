@@ -14,12 +14,16 @@ let poeng = 0;
 function sjekkSvar() {
   if (tekstfelt.value.trim().toLowerCase() === fasit) {
     tilbakemelding.textContent = "Riktig! 🎉";
+    tilbakemelding.classList.add("riktig"); // sett på grønn lapp
+    tilbakemelding.classList.remove("feil"); // ta av rød lapp, hvis den finnes
     tekstfelt.value = "";
     poeng++;
     nyOppgave();
     visPoeng();
   } else {
     tilbakemelding.textContent = "Feil, riktig svar er " + fasit;
+    tilbakemelding.classList.add("feil"); // sett på rød lapp
+    tilbakemelding.classList.remove("riktig"); // ta av grønn lapp, hvis den finnes
     poeng = 0;
     visPoeng();
   }

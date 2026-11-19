@@ -1,0 +1,109 @@
+:root {
+  /* Grunnflater */
+  --surface: #fff8ef; /* Bakgrunn */
+  --surface-raised: #ffffff; /* Kort og bokser */
+  --line: #ede3d6; /* Rammer og skillelinjer */
+
+  /* Tekst */
+  --ink: #1e1b18; /* Hovedtekst og overskrifter */
+  --ink-muted: #6b625a; /* Hjelpetekst og oversettelser */
+
+  /* Merkevare */
+  --coral: #ff5a4e; /* Hovedfarge: knapper, logo, fremdrift */
+  --on-coral: #1e1b18; /* Tekst oppå coral */
+  --coral-tekst: #c9331f; /* Spanske ord og lenker i teskt */
+  --coral-soft: #ffe3dd; /* Lys flate bak fremhevet spansk */
+
+  /* Aksentfarger */
+  --sol: #ffc53d; /* Belønning: streak, XP, stjerner */
+  --sol-soft: #fff0c7; /* Tips-bokser */
+  --azulejo: #2b59c3; /* Grammatikk: verbtider, tabeller, info */
+  --azulejo-soft: #e3eafb; /* Grammatikk-bokser og regel-kort */
+
+  /* Svar */
+  --riktig: #177a4e; /* Riktig svar (med hake) */
+  --riktig-soft: #ddf2e6; /* Bakgrunn for riktig svar */
+  --feil: #a3195b; /* Feil svar (med kryss) */
+  --feil-soft: #fbe0ec; /* Bakgrunn for feil svar */
+
+  /* Annet */
+  --focus-ring: #2b59c3; /* Tastaturfokus (samme som azulejo) */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  padding: 16px;
+}
+
+main {
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 480px;
+  margin: 40px auto;
+}
+
+input,
+button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+input {
+  border: 2px solid var(--line);
+}
+
+button {
+  background: var(--coral);
+  color: var(--on-coral);
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#oppgave {
+  font-size: 28px;
+  text-align: center;
+}
+
+#tilbakemelding {
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#tilbakemelding:empty {
+  display: none;
+}
+
+.riktig {
+  color: var(--riktig);
+  background: var(--riktig-soft);
+}
+
+.feil {
+  color: var(--feil);
+  background: var(--feil-soft);
+}
