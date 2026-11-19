@@ -10,16 +10,21 @@ console.log(knapp);
 let fasit = "";
 
 function sjekkSvar() {
-  if (tekstfelt.value === fasit) {
+  if (tekstfelt.value.trim().toLowerCase() === fasit) {
     tilbakemelding.textContent = "Riktig! 🎉";
     tekstfelt.value = "";
     nyOppgave();
   } else {
     tilbakemelding.textContent = "Feil, riktig svar er " + fasit;
   }
-}
+};
 
 knapp.addEventListener("click", sjekkSvar);
+tekstfelt.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        sjekkSvar()
+    }
+});
 
 const oppgaver = [
   { verb: "ver", person: "yo", svar: "veo" },
@@ -35,6 +40,6 @@ function nyOppgave() {
   const valgtOppgave = oppgaver[nr];
   oppgave.textContent = valgtOppgave.verb + " - " + valgtOppgave.person;
   fasit = valgtOppgave.svar;
-}
+};
 
 nyOppgave()
